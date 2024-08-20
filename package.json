@@ -2,7 +2,18 @@
   "name": "playwright-ts-orangehrm-website",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "npx playwright test --headed",
+    "test:chrome": "npx playwright test --headed --project=chromium",
+    "test:webkit": "npx playwright test --headed --project=webkit",
+    "test:api": "npx playwright test --project=api",
+    "test:headless": "npx playwright test",
+    "lint": "npx eslint .",
+    "lint:fix": "npx eslint . --fix",
+    "format": "npx prettier . --check",
+    "format:fix": "npx prettier . --write",
+    "prepare": "husky"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -19,6 +30,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-playwright": "^1.6.2",
     "eslint-plugin-prettier": "^5.2.1",
+    "husky": "^9.1.4",
     "prettier": "^3.3.3"
   }
 }
