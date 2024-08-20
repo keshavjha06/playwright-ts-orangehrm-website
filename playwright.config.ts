@@ -1,4 +1,17 @@
 import { defineConfig, devices } from '@playwright/test';
+import { config } from 'dotenv';
+
+//staging => .env.staging
+if (process.env.ENVIRONMENT) {
+  console.log('ENVIRONMENT: ', process.env.ENVIRONMENT);
+  config({
+    path: `.env.${process.env.ENVIRONMENT}`,
+    override: true
+  })
+}
+else {
+  config()
+}
 
 export default defineConfig({
   testDir: './e2e/tests',

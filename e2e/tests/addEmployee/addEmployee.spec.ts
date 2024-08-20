@@ -1,9 +1,10 @@
 import { expect, test } from "@playwright/test";
+import { Env } from "../../frameworkConfig/env";
 
 test("Add Employee", async ({ page }) => {
-    await page.goto("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-    await page.getByPlaceholder("Username").fill("Admin");
-    await page.getByPlaceholder("Password").fill("admin123");
+    await page.goto(Env.BASE_URL);
+    await page.getByPlaceholder("Username").fill(Env.USERNAME);
+    await page.getByPlaceholder("Password").fill(Env.PASSWORD);
     await page.getByRole("button", { name: "Login" }).click();
     await page.getByRole("link", { name: "PIM" }).click();
     await page.getByRole("link", { name: "Add Employee" }).click();
