@@ -28,5 +28,14 @@ export default defineConfig({
       name: "chromium",
       use: { ...devices["Desktop Chrome"] },
     },
+    {
+      name: "webkit",
+      use: { ...devices["Desktop Safari"] },
+      testDir: "./e2e/tests/ui",
+    },
+    {
+      name: "api",
+      testDir: "./e2e/tests/api",
+    },
   ],
 });
