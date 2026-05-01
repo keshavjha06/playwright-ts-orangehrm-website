@@ -27,6 +27,9 @@ export default [
 
     languageOptions: {
       parser: tsParser,
+      globals: {
+        process: "readonly",
+      },
     },
   },
 ];
