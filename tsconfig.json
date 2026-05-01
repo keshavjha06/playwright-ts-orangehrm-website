@@ -4,12 +4,8 @@
     "ignoreDeprecations": "6.0",
     "useDefineForClassFields": false,
     "paths": {
-      "@e2e/*": [
-        "./e2e/*"
-      ],
-      "@pages/*": [
-        "./e2e/pages/*"
-      ]
+      "@e2e/*": ["./e2e/*"],
+      "@pages/*": ["./e2e/pages/*"]
     }
   }
 }
