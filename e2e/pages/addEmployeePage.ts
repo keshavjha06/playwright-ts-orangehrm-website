@@ -2,14 +2,14 @@ import { Page } from "@playwright/test";
 import { EmployeeDetails } from "../testdata/orangeHrmInterfaces";
 
 class AddEmployeePage {
-  constructor(private readonly page: Page) { }
+  constructor(private readonly page: Page) {}
 
-  private declare firstNameTextBox: ReturnType<Page["getByRole"]>;
-  private declare lastNameTextBox: ReturnType<Page["getByRole"]>;
-  private declare middleNameTextBox: ReturnType<Page["getByRole"]>;
-  private declare idTextBox: ReturnType<Page["locator"]>;
-  private declare saveButton: ReturnType<Page["getByRole"]>;
-  public declare successMessage: ReturnType<Page["getByText"]>;
+  declare private firstNameTextBox: ReturnType<Page["getByRole"]>;
+  declare private lastNameTextBox: ReturnType<Page["getByRole"]>;
+  declare private middleNameTextBox: ReturnType<Page["getByRole"]>;
+  declare private idTextBox: ReturnType<Page["locator"]>;
+  declare private saveButton: ReturnType<Page["getByRole"]>;
+  declare public successMessage: ReturnType<Page["getByText"]>;
 
   async initialize() {
     this.firstNameTextBox = this.page.getByRole("textbox", {
@@ -21,10 +21,7 @@ class AddEmployeePage {
     this.middleNameTextBox = this.page.getByRole("textbox", {
       name: "Middle Name",
     });
-    this.idTextBox = this.page
-      .locator("form")
-      .getByRole("textbox")
-      .nth(4);
+    this.idTextBox = this.page.locator("form").getByRole("textbox").nth(4);
     this.saveButton = this.page.getByRole("button", { name: "Save" });
     this.successMessage = this.page.getByText(/Successfully Saved/i);
   }

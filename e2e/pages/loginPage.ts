@@ -3,11 +3,11 @@ import HomePage from "./homePage";
 import { Env } from "../frameworkConfig/env";
 
 class LoginPage {
-  constructor(private readonly page: Page) { }
+  constructor(private readonly page: Page) {}
 
-  private declare userNameTextBox: ReturnType<Page["getByPlaceholder"]>;
-  private declare passwordTextBox: ReturnType<Page["getByPlaceholder"]>;
-  private declare loginButton: ReturnType<Page["getByRole"]>;
+  declare private userNameTextBox: ReturnType<Page["getByPlaceholder"]>;
+  declare private passwordTextBox: ReturnType<Page["getByPlaceholder"]>;
+  declare private loginButton: ReturnType<Page["getByRole"]>;
 
   async initialize() {
     this.userNameTextBox = this.page.getByPlaceholder("Username");
