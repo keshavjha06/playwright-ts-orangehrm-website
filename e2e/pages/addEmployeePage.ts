@@ -4,12 +4,12 @@ import { EmployeeDetails } from "../testdata/orangeHrmInterfaces";
 class AddEmployeePage {
   constructor(private readonly page: Page) {}
 
-  declare private firstNameTextBox: ReturnType<Page["getByRole"]>;
-  declare private lastNameTextBox: ReturnType<Page["getByRole"]>;
-  declare private middleNameTextBox: ReturnType<Page["getByRole"]>;
-  declare private idTextBox: ReturnType<Page["locator"]>;
-  declare private saveButton: ReturnType<Page["getByRole"]>;
-  declare public successMessage: ReturnType<Page["getByText"]>;
+  private firstNameTextBox!: ReturnType<Page["getByRole"]>;
+  private lastNameTextBox!: ReturnType<Page["getByRole"]>;
+  private middleNameTextBox!: ReturnType<Page["getByRole"]>;
+  private idTextBox!: ReturnType<Page["locator"]>;
+  private saveButton!: ReturnType<Page["getByRole"]>;
+  public successMessage!: ReturnType<Page["getByText"]>;
 
   async initialize() {
     this.firstNameTextBox = this.page.getByRole("textbox", {

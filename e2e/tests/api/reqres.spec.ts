@@ -1,8 +1,8 @@
 import { test, expect } from "@playwright/test";
 
-test("GET /api/users/2", async ({ request }) => {
-  const response = await request.get("https:reqres.in/api/users/2");
+test("GET /users", async ({ request }) => {
+  const response = await request.get("https://jsonplaceholder.typicode.com/users");
   expect(response.status()).toBe(200);
   const body = await response.json();
-  expect(body.data.id).toBe(2);
+  expect(body[0].id).toBe(1);
 });
