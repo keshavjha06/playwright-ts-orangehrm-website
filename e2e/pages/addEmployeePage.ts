@@ -21,7 +21,10 @@ class AddEmployeePage {
     this.middleNameTextBox = this.page.getByRole("textbox", {
       name: "Middle Name",
     });
-    this.idTextBox = this.page.locator("form").getByRole("textbox").nth(4);
+    this.idTextBox = this.page
+      .locator(".oxd-input-group")
+      .filter({ hasText: "Employee Id" })
+      .getByRole("textbox");
     this.saveButton = this.page.getByRole("button", { name: "Save" });
     this.successMessage = this.page.getByText(/Successfully Saved/i);
   }
