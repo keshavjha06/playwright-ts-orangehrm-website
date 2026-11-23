@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { Env } from "@e2e/frameworkConfig/env";
+import { faker } from "@faker-js/faker";
 
 test("Add Employee", async ({ page }) => {
   await page.goto(Env.BASE_URL);
@@ -12,7 +13,11 @@ test("Add Employee", async ({ page }) => {
   await page.getByPlaceholder("First Name").fill("sdfhsd");
   await page.getByPlaceholder("Middle Name").fill("skjdfsf");
   await page.getByPlaceholder("Last Name").fill("sfgdsdf");
-  await page.locator("form").getByRole("textbox").nth(4).fill("965");
+  await page
+    .locator(".oxd-input-group")
+    .filter({ hasText: "Employee Id" })
+    .getByRole("textbox")
+    .fill(faker.number.int({ min: 100000, max: 9999999 }).toString());
   await page.getByRole("button", { name: "Save" }).click();
   await expect(page.getByText(/Successfully Saved/i)).toBeVisible();
 });
